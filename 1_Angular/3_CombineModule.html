@@ -1,0 +1,35 @@
+﻿<!DOCTYPE>
+<html xmlns="http://www.w3.org/1999/xhtml" html>
+<head>
+    <title></title>
+</head>
+<body>
+
+    <div ng-app="CombineModule">
+        <div>
+            <h1 ng-controller="HelloWorldCtrl">{{helloMessage}}</h1>
+        </div>
+
+        <div id="secondDiv" >
+            <h1 ng-controller="SecondController">{{helloMessage1}}</h1>
+        </div>
+
+    </div>
+    <script src="https://code.angularjs.org/1.4.0/angular.js">
+    
+    </script>
+
+    <script>
+
+        angular.module("MyFirstApplication", []).controller('HelloWorldCtrl', function ($scope) {
+            $scope.helloMessage = "My First controller";
+        });
+
+        angular.module("MySecondApplication", []).controller('SecondController', function ($scope) {
+            $scope.helloMessage1 = "My second Controller";
+        });
+        angular.module("CombineModule", ["MyFirstApplication", "MySecondApplication"]);
+    </script>
+
+</body>
+</html>

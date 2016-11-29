@@ -1,0 +1,47 @@
+﻿<!DOCTYPE >
+<html xmlns="http://www.w3.org/1999/xhtml" html >
+<head>
+    <title></title>
+    
+    
+   
+</head>
+<body>
+    <div>
+        <h3> Reference Link</h3>
+        <a href="http://www.simplygoodcode.com/2014/04/angularjs-getting-around-ngapp-limitations-with-ngmodule/" >Reference Link</a>
+        <a href="http://henriquat.re/modularizing-angularjs/modularizing-angular-applications/modularizing-angular-applications.html">Modernizing ANgular</a>
+        
+    </div>
+    
+    <div id="div1" ng-app="MyFirstApplication" > 
+        <h1 ng-controller="HelloWorldCtrl">{{helloMessage}}</h1>      
+        <ul>
+            <li href=""></li>
+        </ul>
+    </div>
+
+    <div id="secondDiv" ng-app="MySecondApplication">
+        <h1 ng-controller="SecondController">{{helloMessage1}}</h1>
+        <h2>our module is not dependent on any other module, so we hve it as [] </h2>
+    </div>
+     <script src="https://code.angularjs.org/1.4.0/angular.js">
+    </script>
+    
+    <script>
+
+        angular.module("MyFirstApplication", []).controller('HelloWorldCtrl', function ($scope) {
+            $scope.helloMessage = "My First controller";
+
+        });      
+
+        angular.module("MySecondApplication", []).controller('SecondController', function ($scope) {
+            $scope.helloMessage1 = "My second Controller";
+            $scope.FromSecondController = "Second Controlelr in Div1";
+        });
+        angular.bootstrap(document.getElementById("secondDiv"), ['MySecondApplication']);      
+       
+    </script>
+
+</body>
+</html>
